@@ -59,9 +59,8 @@
         <div class="card-body p-4">
           <h3 class="section-title mb-3">About</h3>
           <ul class="list-unstyled mb-0 d-flex flex-column gap-3 profile-meta">
+            <li><i class="bi bi-person-badge"></i> {{ userDetail.role | titlecase }}</li>
             <li><i class="bi bi-geo-alt"></i> {{ userDetail.location }}</li>
-            <li><i class="bi bi-link-45deg"></i> {{ website }}</li>
-            <li><i class="bi bi-building"></i> {{ companyTag }}</li>
             <li><i class="bi bi-calendar3"></i> Joined {{ joinedDate }}</li>
             <li><i class="bi bi-envelope"></i> {{ userDetail.email }}</li>
           </ul>
