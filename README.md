@@ -1,59 +1,182 @@
-# ParcialJeffreyDiaz
+# Parcial Jeffrey Diaz
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.8.
+Aplicación Angular que consume datos de usuarios y repositorios y presenta dos enfoques de patrón maestro-detalle:
 
-## Development server
+- Usuarios: maestro-detalle con componentes (sin navegación por URL para el detalle).
+- Repositorios: maestro-detalle con navegación por rutas (routerLink).
 
-To start a local development server, run:
+## 1. Requisitos de versión
 
-```bash
-ng serve
-```
+### Angular
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Angular CLI: `21.2.8`
+- Angular framework (`@angular/*`): `21.2.x`
 
-## Code scaffolding
+### Node.js y npm
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Node.js requerido para Angular 21: `>= 20.19.0` (recomendado usar Node 22 LTS).
+- npm en este proyecto: `11.12.1` (definido en `packageManager`: `npm@11.12.1`).
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Verificar versiones instaladas
 
 ```bash
-ng generate --help
+node -v
+npm -v
+npx ng version
 ```
 
-## Building
+## 2. Instalación y ejecución del proyecto
 
-To build the project run:
+### 2.1 Clonar y entrar al proyecto
 
 ```bash
-ng build
+git clone <URL_DEL_REPOSITORIO>
+cd parcial_jeffrey_diaz
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+### 2.2 Instalar dependencias
 
 ```bash
-ng test
+npm install
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+### 2.3 Levantar servidor de desarrollo
 
 ```bash
-ng e2e
+npm start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+o equivalente:
 
-## Additional Resources
+```bash
+npx ng serve
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### 2.4 Abrir en navegador
+
+- URL local: `http://localhost:4200/`
+
+El proyecto recarga automáticamente al detectar cambios en archivos fuente.
+
+## 3. Ejecución de pruebas unitarias
+
+Este proyecto está configurado para pruebas unitarias con **Karma + Jasmine** (no con Vitest como runner activo).
+
+### 3.1 Ejecutar toda la suite
+
+```bash
+npm test
+```
+
+o equivalente:
+
+```bash
+npx ng test
+```
+
+### 3.2 Ejecutar en modo no interactivo (útil para CI)
+
+```bash
+npx ng test --watch=false --browsers=ChromeHeadless
+```
+
+### 3.3 Ejecutar un spec puntual
+
+```bash
+npx ng test --include="src/app/repository/repository-list/repository-list.component.spec.ts" --watch=false --browsers=ChromeHeadless
+```
+
+También puedes aplicar ese mismo patrón para cualquier otro archivo `*.spec.ts`.
+
+## 4. Scripts npm disponibles
+
+```json
+{
+	"start": "ng serve",
+	"build": "ng build",
+	"watch": "ng build --watch --configuration development",
+	"test": "ng test"
+}
+```
+
+Comandos útiles:
+
+- Build de producción:
+
+```bash
+npm run build
+```
+
+- Build en modo desarrollo observando cambios:
+
+```bash
+npm run watch
+```
+
+## 5. Estructura del proyecto
+
+```text
+.
+├─ angular.json
+├─ karma.conf.js
+├─ package.json
+├─ public/
+├─ src/
+│  ├─ index.html
+│  ├─ main.ts
+│  ├─ styles.css
+│  ├─ app/
+│  │  ├─ app-module.ts
+│  │  ├─ app-routing-module.ts
+│  │  ├─ app.ts
+│  │  ├─ repository/
+│  │  │  ├─ repository.model.ts
+│  │  │  ├─ repository.module.ts
+│  │  │  ├─ repository.routing.module.ts
+│  │  │  ├─ repository.service.ts
+│  │  │  ├─ repository-list/
+│  │  │  └─ repository-detail/
+│  │  └─ user/
+│  │     ├─ user.model.ts
+│  │     ├─ user.module.ts
+│  │     ├─ user.service.ts
+│  │     ├─ user-list/
+│  │     └─ user-detail/
+│  └─ environments/
+│     ├─ environment.ts
+│     └─ environment.development.ts
+└─ tsconfig*.json
+```
+
+## 6. Patrón maestro-detalle implementado
+
+### 6.1 Detalle de usuario: maestro-detalle con componentes (sin URL)
+
+La vista de usuario sigue un enfoque de maestro-detalle **por composición de componentes**:
+
+- El componente maestro (`user-list`) mantiene el usuario seleccionado.
+- El detalle se renderiza en el mismo contexto visual usando `<app-user-detail>`.
+- El dato viaja por `@Input()` (`[userDetail]="selectedUser!"`).
+- **No fue necesario `@Output()`**, porque la interacción principal es selección desde la lista hacia el detalle, sin eventos de retorno obligatorios para resolver la funcionalidad solicitada.
+
+Esto cumple la indicación de resolver el detalle de usuario con componentes y no mediante rutas URL.
+
+### 6.2 Detalle de repositorio: maestro-detalle con URLs (ruteo)
+
+La vista de repositorios implementa maestro-detalle **mediante navegación por rutas**:
+
+- Desde la lista, cada repositorio navega con `routerLink` a `['/repositories', repo.id]`.
+- El módulo de ruteo de repositorios define:
+	- `path: ''` para la lista.
+	- `path: ':id'` para el detalle.
+
+Este enfoque usa URL para representar el recurso seleccionado y cumple la indicación de maestro-detalle por ruteo, no por comunicación directa de componentes para el detalle.
+
+## 7. Referencias rápidas
+
+- Documentación Angular CLI: https://angular.dev/tools/cli
+- Comandos Angular disponibles:
+
+```bash
+npx ng --help
+```
