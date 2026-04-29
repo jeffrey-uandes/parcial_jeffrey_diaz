@@ -1,0 +1,213 @@
+.gh-repo-detail-page {
+	min-height: calc(100vh - 64px);
+}
+
+.gh-back-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 14px;
+	color: var(--gh-muted);
+}
+
+.gh-back-link:hover {
+	color: var(--gh-text);
+}
+
+.gh-detail-header {
+	border-bottom: 1px solid var(--gh-border);
+	margin-bottom: 24px;
+	padding-bottom: 16px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 12px;
+}
+
+.gh-detail-title {
+	font-size: 2rem;
+	font-weight: 650;
+	letter-spacing: -0.02em;
+	color: var(--gh-text);
+}
+
+.gh-detail-subtitle {
+	color: var(--gh-muted);
+	font-size: 15px;
+	max-width: 900px;
+}
+
+.gh-detail-action-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	border: 1px solid var(--gh-border);
+	background: var(--gh-bg);
+	color: var(--gh-text);
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.gh-detail-action-btn:hover {
+	background: var(--gh-surface-alt);
+}
+
+.gh-detail-counter {
+	border: 1px solid var(--gh-border);
+	border-radius: 999px;
+	font-size: 11px;
+	padding: 0 6px;
+	color: var(--gh-muted);
+}
+
+.gh-detail-card {
+	background: var(--gh-bg);
+	border: 1px solid var(--gh-border);
+	border-radius: 8px;
+}
+
+.gh-detail-card-head {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	border-bottom: 1px solid var(--gh-border);
+	background: var(--gh-surface);
+	padding: 10px 16px;
+	color: var(--gh-text);
+}
+
+.gh-detail-card-head h2 {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.gh-detail-card-body {
+	padding: 16px;
+}
+
+.gh-detail-card-body h3 {
+	border-bottom: 1px solid var(--gh-border);
+	margin-bottom: 12px;
+	padding-bottom: 8px;
+	color: var(--gh-text);
+	font-size: 1.25rem;
+	font-weight: 650;
+}
+
+.gh-detail-card-body p {
+	color: var(--gh-text);
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.gh-detail-card-body pre {
+	border: 1px solid var(--gh-border);
+	border-radius: 6px;
+	background: var(--gh-surface);
+	font-size: 13px;
+	margin: 0 0 12px;
+	padding: 12px;
+}
+
+.gh-detail-mini-title {
+	font-size: 14px !important;
+	font-weight: 600 !important;
+	margin: 0 0 12px !important;
+	padding: 0 !important;
+	border: 0 !important;
+}
+
+.gh-activity-chart {
+	height: 120px;
+	width: 100%;
+	display: flex;
+	align-items: flex-end;
+	gap: 4px;
+}
+
+.gh-activity-bar {
+	flex: 1;
+	min-height: 10%;
+	background: rgba(45, 164, 78, 0.7);
+	border-radius: 3px 3px 0 0;
+}
+
+.gh-chart-labels {
+	color: var(--gh-muted);
+	font-size: 12px;
+}
+
+.gh-inline-link {
+	font-size: 14px;
+}
+
+.gh-inline-link a {
+	color: var(--gh-link);
+	text-decoration: none;
+	overflow-wrap: anywhere;
+}
+
+.gh-inline-link a:hover {
+	text-decoration: underline;
+}
+
+.gh-topic-pill {
+	border: 1px solid var(--gh-border);
+	background: var(--gh-surface);
+	color: var(--gh-text);
+	border-radius: 999px;
+	font-size: 12px;
+	padding: 4px 10px;
+}
+
+.gh-meta-list {
+	border-top: 1px solid var(--gh-border);
+	padding-top: 12px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.gh-meta-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	color: var(--gh-muted);
+	font-size: 14px;
+}
+
+.gh-meta-item strong {
+	color: var(--gh-text);
+	font-weight: 600;
+}
+
+.gh-lang-progress {
+	display: flex;
+	height: 8px;
+	border-radius: 999px;
+	overflow: hidden;
+	background: var(--gh-surface);
+}
+
+.gh-lang-progress-segment {
+	height: 100%;
+}
+
+.gh-lang-dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+@media (max-width: 767.98px) {
+	.gh-repo-detail-page {
+		min-height: calc(100vh - 56px - 64px);
+	}
+
+	.gh-detail-title {
+		font-size: 1.65rem;
+	}
+}

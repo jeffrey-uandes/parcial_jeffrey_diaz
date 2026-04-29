@@ -1,0 +1,13 @@
+.topbar-tab {
+  color: var(--gh-muted);
+  transition: color 0.15s;
+}
+
+.topbar-tab:hover {
+  color: var(--gh-text);
+}
+
+.topbar-tab.topbar-tab-active {
+  color: var(--gh-primary);
+  border-bottom: 2px solid var(--gh-primary);
+}
