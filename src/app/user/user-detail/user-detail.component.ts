@@ -1,15 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { User } from '../user.model';
+import { Usuario } from '../user.model';
 
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.css'],
+  styleUrl: './user-detail.component.css',
   standalone: false
 })
 export class UserDetailComponent implements OnInit {
   
-  @Input() userDetail!: User;
+  @Input() userDetail!: Usuario;
   
   constructor() { }
 

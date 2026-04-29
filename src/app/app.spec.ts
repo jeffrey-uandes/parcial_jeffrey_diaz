@@ -25,6 +25,6 @@ describe('App', () => {
     fixture.detectChanges();
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('GitHub Explorer');
+    expect(compiled.textContent).toContain('Explorador de GitHub');
   });
 });

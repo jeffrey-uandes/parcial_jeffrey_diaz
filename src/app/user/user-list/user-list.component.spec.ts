@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Observable, of } from 'rxjs';
 
-import { User } from '../user.model';
+import { Usuario } from '../user.model';
 import { UserDetailComponent } from '../user-detail/user-detail.component';
 import { UserService } from '../user.service';
 import { UserListComponent } from './user-list.component';
@@ -11,10 +11,10 @@ import { UserListComponent } from './user-list.component';
 describe('UserListComponent', () => {
 	let component: UserListComponent;
 	let fixture: ComponentFixture<UserListComponent>;
-	let userServiceSpy: { getUsers: () => Observable<User[]> };
+	let userServiceSpy: { getUsers: () => Observable<Usuario[]> };
 
-	const mockUsers: User[] = [
-		new User(
+	const mockUsers: Usuario[] = [
+		new Usuario(
 			1,
 			'octocat',
 			'The Octocat',
@@ -24,7 +24,7 @@ describe('UserListComponent', () => {
 			'San Francisco',
 			[101, 102, 103]
 		),
-		new User(
+		new Usuario(
 			2,
 			'linus',
 			'Linus Torvalds',
@@ -170,7 +170,7 @@ describe('UserListComponent', () => {
 		expect(cards.length).toBe(0);
 	});
 
-	it('should load users with required User fields populated', () => {
+	it('should load users with required Usuario fields populated', () => {
 		fixture.detectChanges();
 		component.users.forEach((user) => {
 			expect(user.id).toBeGreaterThan(0);

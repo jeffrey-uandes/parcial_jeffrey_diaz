@@ -1,0 +1,135 @@
+.gh-repo-page {
+	min-height: calc(100vh - 64px);
+}
+
+.gh-page-header {
+	border-color: var(--gh-border) !important;
+}
+
+.gh-page-title {
+	font-size: 22px;
+	letter-spacing: -0.02em;
+	color: var(--gh-text);
+}
+
+.gh-repo-toolbar {
+	flex: 1 1 auto;
+	justify-content: flex-end;
+}
+
+.gh-repo-search-wrap {
+	width: min(360px, 100%);
+}
+
+.gh-repo-search-icon {
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 13px;
+}
+
+.gh-repo-search {
+	padding-left: 30px;
+}
+
+.gh-repo-new-btn {
+	background-color: var(--gh-primary);
+	border: 1px solid var(--gh-primary);
+	color: #ffffff;
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.gh-repo-new-btn:hover {
+	background-color: var(--gh-primary-hover);
+	border-color: var(--gh-primary-hover);
+	color: #ffffff;
+}
+
+.gh-repo-card {
+	background-color: var(--gh-bg);
+	border: 1px solid var(--gh-border);
+	border-radius: 8px;
+	padding: 16px;
+	transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.gh-repo-card:hover {
+	border-color: #afb8c1;
+	box-shadow: 0 1px 0 rgba(31, 35, 40, 0.06);
+}
+
+.gh-repo-name {
+	color: var(--gh-link);
+	font-size: 1.05rem;
+	font-weight: 600;
+	max-width: 280px;
+}
+
+.gh-repo-name:hover {
+	color: var(--gh-secondary);
+	text-decoration: underline !important;
+}
+
+.gh-repo-badge {
+	border: 1px solid var(--gh-border);
+	border-radius: 999px;
+	color: var(--gh-muted);
+	font-size: 10px;
+	font-weight: 600;
+	padding: 2px 8px;
+	text-transform: uppercase;
+}
+
+.gh-repo-star-btn {
+	background-color: var(--gh-bg);
+	border: 1px solid var(--gh-border);
+	color: var(--gh-text);
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1;
+	padding: 6px 10px;
+	white-space: nowrap;
+}
+
+.gh-repo-star-btn:hover {
+	background-color: var(--gh-surface-alt);
+	border-color: #afb8c1;
+}
+
+.gh-repo-description {
+	color: var(--gh-text);
+	font-size: 14px;
+	line-height: 1.45;
+}
+
+.gh-repo-meta {
+	color: var(--gh-muted);
+	font-size: 12px;
+}
+
+.gh-lang-dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+@media (max-width: 767.98px) {
+	.gh-repo-page {
+		min-height: calc(100vh - 56px - 64px);
+	}
+
+	.gh-page-title {
+		font-size: 1.6rem;
+	}
+
+	.gh-repo-toolbar {
+		justify-content: stretch;
+		width: 100%;
+	}
+
+	.gh-repo-search-wrap {
+		width: 100%;
+	}
+}

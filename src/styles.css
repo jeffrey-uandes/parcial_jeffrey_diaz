@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+html {
+  scrollbar-gutter: stable;
+}
+
 :root {
   --gh-bg: #ffffff;
   --gh-surface: #f6f8fa;
@@ -18,6 +22,7 @@ body {
   background-color: var(--gh-bg);
   color: var(--gh-text);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  scrollbar-gutter: stable;
 }
 
 a {

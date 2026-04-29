@@ -3,15 +3,15 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { UserDetailComponent } from './user-detail.component';
-import { User } from '../user.model';
+import { Usuario } from '../user.model';
 
 describe('UserDetailComponent', () => {
   let component: UserDetailComponent;
   let fixture: ComponentFixture<UserDetailComponent>;
-  let mockUser: User;
+  let mockUser: Usuario;
 
   beforeEach(async () => {
-    mockUser = new User(
+    mockUser = new Usuario(
       7,
       'jdiaz',
       'Jeffrey Diaz',
@@ -76,7 +76,7 @@ describe('UserDetailComponent', () => {
   });
 
   it('should return 0 repositories when repoIds is undefined', () => {
-    component.userDetail = new User(8, 'ana', 'Ana', 'ana@mail.com', 'https://example.com/a.png', 'qa', 'Lima', undefined as unknown as number[]);
+    component.userDetail = new Usuario(8, 'ana', 'Ana', 'ana@mail.com', 'https://example.com/a.png', 'qa', 'Lima', undefined as unknown as number[]);
     expect(component.repositories).toBe(0);
   });
 
@@ -85,7 +85,7 @@ describe('UserDetailComponent', () => {
   });
 
   it('should return minimum stars value when repos are missing', () => {
-    component.userDetail = new User(3, 'sam', 'Sam', 'sam@mail.com', 'https://example.com/s.png', 'devops', 'Quito', undefined as unknown as number[]);
+    component.userDetail = new Usuario(3, 'sam', 'Sam', 'sam@mail.com', 'https://example.com/s.png', 'devops', 'Quito', undefined as unknown as number[]);
     expect(component.stars).toBe('1.0k');
   });
 
@@ -106,7 +106,7 @@ describe('UserDetailComponent', () => {
   });
 
   it('should return empty pinnedRepos when repoIds is undefined', () => {
-    component.userDetail = new User(5, 'mia', 'Mia', 'mia@mail.com', 'https://example.com/m.png', 'designer', 'Medellin', undefined as unknown as number[]);
+    component.userDetail = new Usuario(5, 'mia', 'Mia', 'mia@mail.com', 'https://example.com/m.png', 'designer', 'Medellin', undefined as unknown as number[]);
     expect(component.pinnedRepos).toEqual([]);
   });
 
@@ -123,7 +123,7 @@ describe('UserDetailComponent', () => {
     expect(cards.length).toBe(2);
   });
 
-  it('should validate required User fields used in the detail view', () => {
+  it('should validate required Usuario fields used in the detail view', () => {
     expect(component.userDetail.id).toBeGreaterThan(0);
     expect(component.userDetail.username.trim().length).toBeGreaterThan(0);
     expect(component.userDetail.name.trim().length).toBeGreaterThan(0);

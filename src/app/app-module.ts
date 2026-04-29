@@ -20,4 +20,5 @@ import { UserModule } from './user/user.module';
   ],
   bootstrap: [App]
 })
+
 export class AppModule { }

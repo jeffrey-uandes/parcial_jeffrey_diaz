@@ -1,0 +1,79 @@
+<section class="gh-repo-page py-4 px-3 px-md-4">
+  <!-- Page header -->
+  <div
+    class="d-flex flex-wrap align-items-center justify-content-between gap-3 border-bottom pb-3 mb-4 gh-page-header"
+  >
+    <h1 class="mb-0 fw-semibold gh-page-title">Repositorios</h1>
+
+    <div class="d-flex flex-wrap align-items-center gap-2 gh-repo-toolbar">
+      <div class="position-relative gh-repo-search-wrap">
+        <i class="bi bi-search position-absolute text-muted gh-repo-search-icon"></i>
+        <input
+          type="text"
+          class="form-control form-control-sm gh-search-input gh-repo-search"
+          placeholder="Buscar un repositorio..."
+          aria-label="Buscar repositorios"
+          [(ngModel)]="searchTerm"
+        />
+      </div>
+
+      <button type="button" class="btn btn-sm gh-filter-btn d-inline-flex align-items-center gap-1">
+        Tipo: Todos
+        <i class="bi bi-caret-down-fill" style="font-size: 10px"></i>
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-sm gh-repo-new-btn d-inline-flex align-items-center gap-1"
+      >
+        <i class="bi bi-plus-lg" style="font-size: 12px"></i>
+        Nuevo
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Empty state -->
+  <p
+    *ngIf="filteredRepositories.length === 0 && repositories.length > 0"
+    class="text-muted py-4 text-center"
+  >
+    Ningún repositorio coincide con "<strong>{{ searchTerm }}</strong
+    >"
+  </p>
+
+  <!-- Repositories grid -->
+  <div class="row g-3">
+    <div class="col-12 col-xl-6" *ngFor="let repo of filteredRepositories">
+      <article class="gh-repo-card h-100">
+        <div class="d-flex align-items-start justify-content-between gap-2 mb-2">
+          <div class="d-flex align-items-center gap-2 min-w-0">
+            <a class="gh-repo-name text-decoration-none text-truncate" [routerLink]="['/repositories', repo.id]">
+              {{ repo.name }}
+            </a>
+            <span class="gh-repo-badge">Público</span>
+          </div>
+          <button type="button" class="btn btn-sm gh-repo-star-btn">
+            <i class="bi bi-star me-1"></i>Estrella
+          </button>
+        </div>
+
+        <p class="mb-3 gh-repo-description">{{ repo.description }}</p>
+
+        <div class="d-flex flex-wrap align-items-center gap-3 gh-repo-meta">
+          <span class="d-inline-flex align-items-center gap-1">
+            <span class="gh-lang-dot" [style.background-color]="getLangColor(repo.language)"></span>
+            {{ repo.language }}
+          </span>
+          <span class="d-inline-flex align-items-center gap-1">
+            <i class="bi bi-star"></i>{{ formatStars(repo.stars) }}
+          </span>
+          <span>{{ formatDate(repo.createdAt) }}</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

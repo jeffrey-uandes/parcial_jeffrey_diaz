@@ -1,16 +1,16 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
-import { User } from '../user.model';
+import { Usuario } from '../user.model';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css'],
+  styleUrl: './user-list.component.css',
   standalone: false
 })
 export class UserListComponent implements OnInit {
-  users: User[] = [];
-  selectedUser: User | null = null;
+  users: Usuario[] = [];
+  selectedUser: Usuario | null = null;
   wasSelected: boolean = false;
 
   constructor(private userService: UserService, private cdr: ChangeDetectorRef) { }
@@ -29,7 +29,7 @@ export class UserListComponent implements OnInit {
     return `${hoursAgo * 60}m`;
   }
 
-  selectUser(user: User) {
+  selectUser(user: Usuario) {
     this.selectedUser = user;
     this.wasSelected = true;
   }

@@ -1,36 +1,38 @@
 <!-- Sidebar (desktop) -->
 <nav class="gh-sidebar d-none d-md-flex flex-column py-3">
   <!-- Brand -->
-  <div class="px-3 pb-3 mb-2" style="border-bottom: 1px solid var(--gh-border);">
+  <div class="px-3 mb-2" style="border-bottom: 1px solid var(--gh-border); padding-bottom: 44px">
     <div class="d-flex align-items-center gap-2 mb-3">
       <img
         src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
         alt="Logo"
         class="rounded-circle"
-        style="width:32px; height:32px; object-fit:cover;"
+        style="width: 32px; height: 32px; object-fit: cover"
       />
       <div>
-        <div class="fw-bold" style="font-size:14px; line-height:1.2; color: var(--gh-text);">Main Explorer</div>
-        <div class="text-muted" style="font-size:12px;">Developer Console</div>
+        <div class="fw-bold" style="font-size: 14px; line-height: 1.2; color: var(--gh-text)">
+          Explorador Principal
+        </div>
+        <div class="text-muted" style="font-size: 12px">Consola del Desarrollador</div>
       </div>
     </div>
     <a
       routerLink="/repositories"
-      class="btn btn-sm w-100 fw-semibold text-white"
-      style="background-color: var(--gh-primary); border-color: var(--gh-primary);"
+      class="btn btn-sm w-100 fw-semibold text-white mt-2"
+      style="background-color: var(--gh-primary); border-color: var(--gh-primary)"
     >
-      New Repository
+      Nuevo Repositorio
     </a>
   </div>
 
   <!-- Nav Links -->
   <div class="px-2 d-flex flex-column gap-1 mt-1">
     <a routerLink="/users" routerLinkActive="active" class="gh-nav-link">
-      <i class="bi bi-people-fill" style="font-size:16px;"></i>
+      <i class="bi bi-people-fill" style="font-size: 16px"></i>
       Usuarios
     </a>
     <a routerLink="/repositories" routerLinkActive="active" class="gh-nav-link">
-      <i class="bi bi-terminal-fill" style="font-size:16px;"></i>
+      <i class="bi bi-terminal-fill" style="font-size: 16px"></i>
       Repositorios
     </a>
   </div>
@@ -38,82 +40,143 @@
 
 <!-- Main content -->
 <div class="gh-main d-flex flex-column">
-
   <!-- Top bar (desktop) -->
   <header class="gh-topbar d-none d-md-flex align-items-center justify-content-between px-4">
-    <div class="d-flex align-items-center gap-3">
-      <span class="fw-bold" style="font-size:18px; color: var(--gh-text);">GitHub Explorer</span>
-      <!-- Search -->
-      <div class="position-relative" style="width:260px;">
-        <i class="bi bi-search position-absolute text-muted" style="left:10px; top:50%; transform:translateY(-50%); font-size:13px;"></i>
+    <div class="d-flex align-items-center">
+      <span class="fw-bold" style="font-size: 18px; color: var(--gh-text)">Explorador de GitHub</span>
+    </div>
+
+    <!-- Search centrada -->
+    <div class="position-absolute start-50 translate-middle-x" style="width: 320px">
+      <div class="position-relative">
+        <i
+          class="bi bi-search position-absolute text-muted"
+          style="left: 10px; top: 50%; transform: translateY(-50%); font-size: 13px"
+        ></i>
         <input
           type="text"
           class="form-control form-control-sm gh-search-input ps-4"
-          placeholder="Search..."
-          style="padding-right: 36px;"
+          placeholder="Buscar ..."
+          style="padding-right: 36px"
         />
         <span
           class="position-absolute text-muted border rounded px-1"
-          style="right:8px; top:50%; transform:translateY(-50%); font-size:10px; border-color:var(--gh-border) !important;"
-        >/</span>
+          style="
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 10px;
+            border-color: var(--gh-border) !important;
+          "
+          >/</span
+        >
       </div>
     </div>
 
     <div class="d-flex align-items-center gap-3">
       <!-- Tab links -->
-      <div class="d-flex gap-3 pe-3" style="border-right: 1px solid var(--gh-border);">
-        <a routerLink="/users" routerLinkActive="topbar-tab-active" class="topbar-tab text-decoration-none" style="font-size:14px; padding-bottom:4px;">Usuarios</a>
-        <a routerLink="/repositories" routerLinkActive="topbar-tab-active" class="topbar-tab text-decoration-none" style="font-size:14px; padding-bottom:4px;">Repositorios</a>
+      <div class="d-flex gap-3 pe-3" style="border-right: 1px solid var(--gh-border)">
+        <a
+          routerLink="/users"
+          routerLinkActive="topbar-tab-active"
+          class="topbar-tab text-decoration-none"
+          style="font-size: 14px; padding-bottom: 4px"
+          >Usuarios</a
+        >
+        <a
+          routerLink="/repositories"
+          routerLinkActive="topbar-tab-active"
+          class="topbar-tab text-decoration-none"
+          style="font-size: 14px; padding-bottom: 4px"
+          >Repositorios</a
+        >
       </div>
       <!-- Icons -->
       <button class="btn btn-link p-0 text-muted">
-        <i class="bi bi-bell" style="font-size:18px;"></i>
+        <i class="bi bi-bell" style="font-size: 18px"></i>
       </button>
       <button class="btn btn-link p-0 text-muted">
-        <i class="bi bi-gear" style="font-size:18px;"></i>
+        <i class="bi bi-gear" style="font-size: 18px"></i>
       </button>
       <img
         src="https://avatars.githubusercontent.com/u/1?v=4"
         alt="Avatar"
         class="rounded-circle border"
-        style="width:32px; height:32px; object-fit:cover; border-color:var(--gh-border) !important;"
+        style="
+          width: 32px;
+          height: 32px;
+          object-fit: cover;
+          border-color: var(--gh-border) !important;
+        "
       />
     </div>
   </header>
 
   <!-- Top bar (mobile) -->
-  <header class="d-flex d-md-none align-items-center justify-content-between px-3"
-    style="height:56px; background-color:var(--gh-surface); border-bottom:1px solid var(--gh-border); position:sticky; top:0; z-index:99;">
-    <span class="fw-bold" style="font-size:18px; color: var(--gh-text);">Usuarios</span>
+  <header
+    class="d-flex d-md-none align-items-center justify-content-between px-3"
+    style="
+      height: 56px;
+      background-color: var(--gh-surface);
+      border-bottom: 1px solid var(--gh-border);
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    "
+  >
+    <span class="fw-bold" style="font-size: 18px; color: var(--gh-text)">Usuarios</span>
     <div class="d-flex align-items-center gap-2">
-      <button class="btn btn-link p-0 text-muted"><i class="bi bi-search" style="font-size:18px;"></i></button>
+      <button class="btn btn-link p-0 text-muted">
+        <i class="bi bi-search" style="font-size: 18px"></i>
+      </button>
       <img
         src="https://avatars.githubusercontent.com/u/1?v=4"
         alt="Avatar"
         class="rounded-circle border"
-        style="width:32px; height:32px; object-fit:cover; border-color:var(--gh-border) !important;"
+        style="
+          width: 32px;
+          height: 32px;
+          object-fit: cover;
+          border-color: var(--gh-border) !important;
+        "
       />
     </div>
   </header>
 
   <!-- Page content -->
-  <main class="flex-fill">
+  <main class="flex-fill overflow-hidden">
     <router-outlet></router-outlet>
   </main>
 </div>
 
 <!-- Bottom nav (mobile) -->
-<nav class="gh-bottom-nav d-flex d-md-none fixed-bottom justify-content-around align-items-center px-2">
-  <a routerLink="/users" routerLinkActive="active" class="d-flex flex-column align-items-center gap-1 text-decoration-none text-muted" style="font-size:10px; width:64px;">
-    <i class="bi bi-people-fill" style="font-size:22px;"></i>
+<nav
+  class="gh-bottom-nav d-flex d-md-none fixed-bottom justify-content-around align-items-center px-2"
+>
+  <a
+    routerLink="/users"
+    routerLinkActive="active"
+    class="d-flex flex-column align-items-center gap-1 text-decoration-none text-muted"
+    style="font-size: 10px; width: 64px"
+  >
+    <i class="bi bi-people-fill" style="font-size: 22px"></i>
     <span>Usuarios</span>
   </a>
-  <a routerLink="/repositories" routerLinkActive="active" class="d-flex flex-column align-items-center gap-1 text-decoration-none text-muted" style="font-size:10px; width:64px;">
-    <i class="bi bi-terminal-fill" style="font-size:22px;"></i>
+  <a
+    routerLink="/repositories"
+    routerLinkActive="active"
+    class="d-flex flex-column align-items-center gap-1 text-decoration-none text-muted"
+    style="font-size: 10px; width: 64px"
+  >
+    <i class="bi bi-terminal-fill" style="font-size: 22px"></i>
     <span>Repositorios</span>
   </a>
-  <a href="#" class="d-flex flex-column align-items-center gap-1 text-decoration-none text-muted" style="font-size:10px; width:64px;">
-    <i class="bi bi-bell" style="font-size:22px;"></i>
+  <a
+    href="#"
+    class="d-flex flex-column align-items-center gap-1 text-decoration-none text-muted"
+    style="font-size: 10px; width: 64px"
+  >
+    <i class="bi bi-bell" style="font-size: 22px"></i>
     <span>Alerts</span>
   </a>
 </nav>
